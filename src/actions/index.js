@@ -2,18 +2,16 @@ import { FETCH_PRODUCTS, CHANGE_CATEGORY } from './action-types';
 import { getDataByYears } from '../api/services'
 
 
-//Представим, что мы работаем не с файлом, а шлем запросы к серверу. Запрос содержит параметр - год.
-
+//Представим, что мы работаем не с файлом, а с сервером.
 export function setFilter(filter, value) {
 
-    return dispatch =>{
-        if (filter === 'YEAR')
-        {
-            let arr = getDataByYears(value);
-            dispatch(fetchProducts(arr));
-        }
-        else dispatch(changeCategory(filter, value));
+    if (filter === null || filter === 'YEAR')
+    {
+        let arr = getDataByYears(value);
+        return fetchProducts(arr);
     }
+    else
+        return changeCategory(filter, value);
 }
 
 export const changeCategory = (filter, value) => ({

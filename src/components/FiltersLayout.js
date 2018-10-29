@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FiltersContainer from "../containers/FiltersContainer";
 import { getYears } from '../api/services';
-import { Filters } from "../actions";
+import {Filters, setFilter} from "../actions";
 
 class FiltersLayout extends Component {
     constructor() {
@@ -13,6 +13,11 @@ class FiltersLayout extends Component {
 
     componentDidMount() {
         this.setState({years: getYears()});
+
+
+        // this.setState({years: getYears()}, () =>
+        //     setFilter(null, this.state.years[0])
+        // );
     }
 
 
