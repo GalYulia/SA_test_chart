@@ -1,10 +1,10 @@
 import { Filters } from "../actions";
 
 const filter = (state = Filters.YEAR, action) => {
-    console.log("я редьюсер - тип комбобокса:", action.filter);
-    console.log("val", action.value);
+    console.log("тип комбобокса:", action.filter);
+    console.log("значение комбобокса:", action.value);
     switch (action.type) {
-        case "SET_FILTER":
+        case "CHANGE_CATEGORY":
             return action.filter;
         default:
             return state;

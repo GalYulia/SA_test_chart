@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Layout = props => (
   <div>
-    <header><h1>Тестовое задание в Smart Analytics</h1></header>
+    <header><h1>Title</h1></header>
     <aside>
       <ul>
         <li><Link to="/">Home</Link></li>

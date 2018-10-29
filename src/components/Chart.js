@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "./Footer";
+import FiltersLayout from "./FiltersLayout";
 
 const Chart = ({ products }) => (
     <div>
@@ -8,7 +8,7 @@ const Chart = ({ products }) => (
                 <li {...product}/>
             ))}
         </ul>
-        <Footer />
+        <FiltersLayout />
     </div>
 );
 

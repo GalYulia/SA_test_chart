@@ -1,15 +1,13 @@
 const products = (state = [], action) => {
     switch (action.type) {
-        case 'ADD_TODO':
+        case 'FETCH_PRODUCTS': //вернулся products
             return [
                 ...state,
                 {
-                    id: action.id,
-                    text: action.text,
-                    completed: false
+                    products: action.products,
                 }
             ]
-        case 'TOGGLE_TODO':
+        case 'CHANGE_CATEGORY': //вернулось value
             return state.map(todo =>
                 (todo.id === action.id)
                     ? {...todo, completed: !todo.completed}

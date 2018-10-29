@@ -1,50 +1,34 @@
-import {
-    FETCH_PRODUCTS_SUCCESS,
-    FETCH_PRODUCTS_FAILURE,
-    SET_FILTER
-} from './action-types';
+import { FETCH_PRODUCTS, CHANGE_CATEGORY } from './action-types';
+import { getDataByYears } from '../api/services'
 
-export function fetchProducts() {
-    return dispatch => {
 
-        //тут будет логика получения данных по конкретному году и параметру (категория товара или товар)
-        return fetch("/products")
-            .then(handleErrors)
-            .then(res => res.json())
-            .then(json => {
-                dispatch(fetchProductsSuccess(json.products));
-                return json.products;
-            })
-            .catch(error => dispatch(fetchProductsError(error)));
-    };
-}
+//Представим, что мы работаем не с файлом, а шлем запросы к серверу. Запрос содержит параметр - год.
 
-function handleErrors(response) {
-    if (!response.ok) {
-        throw Error(response.statusText);
+export function setFilter(filter, value) {
+
+    return dispatch =>{
+        if (filter === 'YEAR')
+        {
+            let arr = getDataByYears(value);
+            dispatch(fetchProducts(arr));
+        }
+        else dispatch(changeCategory(filter, value));
     }
-    return response;
 }
 
-export const fetchProductsSuccess = products => ({
-    type: FETCH_PRODUCTS_SUCCESS,
-    payload: { products }
-});
-
-export const fetchProductsError = error => ({
-    type: FETCH_PRODUCTS_FAILURE,
-    payload: { error }
-});
-
-
-export const setFilter = (filter, value) => ({
-    type: "SET_FILTER",
-    filter,
+export const changeCategory = (filter, value) => ({
+    type: CHANGE_CATEGORY,
     value
-});
+})
+
+export const fetchProducts = products => ({
+    type: FETCH_PRODUCTS,
+    payload: { products }
+})
 
 
 export const Filters = {
     YEAR: "YEAR",
     CATEGORY: "CATEGORY"
 }
+

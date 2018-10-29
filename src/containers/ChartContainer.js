@@ -3,13 +3,15 @@ import Chart from "../components/Chart";
 import { Filters } from "../actions";
 
 const ChartContainer = (products, filter) => {
-    console.log('qwewr',products)
 
+    //тут будет меняться стор в зависимости от фильтров (год и категория). Это вью. Здесь уже только отрисовка графика
+    // с уже готовыми данными
+    console.log('стор', products)
     switch (filter) {
         case Filters.YEAR:
-            return ["я год! я год!"];
+            return products //products.filter(...);
         case Filters.CATEGORY:
-            return [2, 4, 3];
+            return products;
         default:
             throw new Error("Unknown filter: " + filter);
     }
