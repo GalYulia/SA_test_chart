@@ -1,27 +1,25 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, Route, Switch, browserHistory } from 'react-router-dom';
+import { Provider } from "react-redux";
+import store from "./store";
+import {
+  BrowserRouter, Route, Switch, browserHistory,
+} from 'react-router-dom';
 
-import Layout from './components/Layout/Layout';
-import ChartLayout from './components/ChartLayout/ChartLayout';
-import UserListContainer from './components/UserListContainer/UserListContainer';
+import Layout from './components/Layout';
 
 import Home from './components/Home';
-
-
-// import './index.css';
-// import './styles/globalStyles.css';
-
+import ChartContainer from "./containers/ChartContainer";
 
 render((
-  <BrowserRouter>
-    <Layout>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <ChartLayout>
-          <Route path="/users" component={UserListContainer} />
-        </ChartLayout>
-      </Switch>
-    </Layout>
-  </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/report" component={ChartContainer} />
+          </Switch>
+        </Layout>
+      </BrowserRouter>
+    </Provider>
 ), document.getElementById('root'));
