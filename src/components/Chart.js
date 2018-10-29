@@ -21,9 +21,8 @@ function getData(prod) {
     for (i = 0; i < prod.length; i++) {
         var color = getRandomColor();
         data.push({
-            x: prod[i][0],
-            y: prod[i][1],
-            radius: 4,
+            data: [[prod[i].points[0],prod[i].points[1]]],
+            name: prod[i].name,
             color: color,
             fillColor: color
         });
@@ -46,12 +45,14 @@ const Chart = (props) => {
                 type: 'scatter'
             },
             title: {
-                text: 'My chart'
+                text: 'Товары'
             },
-            series: [{
-                name: 'sdsdcs',
-                data: getData(products)
-            }]
+            series: getData(products),
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
         }
 
 console.log('aaaaa', products)

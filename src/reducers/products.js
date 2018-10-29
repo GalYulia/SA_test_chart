@@ -3,7 +3,12 @@ const products = (state = [], action) => {
         case 'FETCH_PRODUCTS': //вернулся products
             return{
                 ...state,
-                products: action.payload.products.map((a) => [a.feature1,a.feature2])
+                products: action.payload.products.map((a) => {
+                    return {
+                        points: [a.feature1, a.feature2],
+                        name: a.name
+                    }
+                })
             }
         case 'CHANGE_CATEGORY': //вернулось value
             return state.map(todo =>
