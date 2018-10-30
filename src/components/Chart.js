@@ -3,36 +3,6 @@ import FiltersLayout from "./FiltersLayout";
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-
-
-
-const getRandomColor =() => {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
-function getData(prod) {
-    var data = [];
-    var i;
-    for (i = 0; i < prod.length; i++) {
-        var color = getRandomColor();
-        data.push({
-            data: [[prod[i].points[0],prod[i].points[1]]],
-            name: prod[i].name,
-            color: color,
-            fillColor: color
-        });
-    }
-    return data;
-}
-
-
-
-
 const Chart = (props) => {
     let body = null;
     if (!props || !props.products)
@@ -47,7 +17,17 @@ const Chart = (props) => {
             title: {
                 text: 'Товары'
             },
-            series: getData(products),
+            xAxis: {
+                title: {
+                    enabled: true,
+                    text: 'Feature 1'
+                }},
+            yAxis: {
+                title: {
+                    enabled: true,
+                    text: 'Feature 2'
+                }},
+            series: products,
             legend: {
                 layout: 'vertical',
                 align: 'right',
@@ -55,7 +35,6 @@ const Chart = (props) => {
             },
         }
 
-console.log('aaaaa', products)
         body =
             <div>
                 <HighchartsReact

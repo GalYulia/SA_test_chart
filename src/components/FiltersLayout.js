@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import FiltersContainer from "../containers/FiltersContainer";
 import { getYears } from '../api/services';
 import {CategoryFilter, Filters} from "../constants";
+import {setFilter} from "../actions";
 
 class FiltersLayout extends Component {
     constructor() {
@@ -15,9 +16,9 @@ class FiltersLayout extends Component {
         this.setState({years: getYears()});
 
 
-        // this.setState({years: getYears()}, () =>
-        //     setFilter(null, this.state.years[0])
-        // );
+        this.setState({years: getYears()}, () =>
+            setFilter(null, this.state.years[0])
+        );
     }
 
 

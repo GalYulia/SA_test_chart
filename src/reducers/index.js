@@ -5,10 +5,9 @@ const initialState = {
     year: null
 };
 
-
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'CHANGE_YEAR': //вернулся products
+        case 'CHANGE_YEAR':
             return{
                 ...state,
                 products: action.products.map((a) => {
