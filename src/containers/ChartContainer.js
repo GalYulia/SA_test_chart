@@ -20,7 +20,7 @@ const getProductsData = (prod) => {
 };
 
 function getCategoriesData(prod) {
-  const categories = ['Feature1 > 150', 'Feature1 < 150', 'Другое'];
+  const categories = ['Feature1 > 150', 'Feature1 < 100', 'Другое'];
   const data = [];
 
   let i;
