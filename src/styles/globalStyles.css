@@ -1,0 +1,14 @@
+
+.block{
+    display: block;
+    width: 100%;
+}
+
+.container {
+    composes:block;
+    margin: 10px 20%;
+    width: 60%;
+    padding: 20px;
+}
+
+

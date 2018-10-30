@@ -8,11 +8,15 @@ const postCssVar = {
   loader: 'postcss-loader',
   options: {
     ident: 'postcss',
+    config: {
+      path: 'path/to/postcss.config.js',
+    },
     plugins: () => [
       postcssPresetEnv(/* options */),
     ],
   },
 };
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -34,7 +38,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: '/src/styles/styles.css',
+        exclude: '/src/styles/',
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -50,17 +54,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: '/src/styles/styles.css',
+        include: '/src/styles/',
         use: [MiniCssExtractPlugin.loader, 'css-loader', postCssVar],
-      },
-      {
-        test: /\.(png|jpe?g|svg)$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-          },
-        },
       },
     ],
   },
@@ -68,7 +63,7 @@ module.exports = {
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
-        parallel: true, /* чтоб использовал многопоточность */
+        parallel: true,
         sourceMap: true,
       }),
     ],

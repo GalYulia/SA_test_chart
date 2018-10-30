@@ -1,11 +1,11 @@
-// export interface DataRow {
-//     name: string,
-//     feature1: number,
-//     feature2: number,
-//     year: number
-// }
+export interface DataRow {
+    name: string,
+    feature1: number,
+    feature2: number,
+    year: number
+}
 
-const products = [
+const products: DataRow[] = [
     { name: "Product 0", feature1: 30, feature2: 51.6, year: 2015 },
     { name: "Product 1", feature1: 167.5, feature2: 59, year: 2015 },
     { name: "Product 2", feature1: 159.5, feature2: 49.2, year: 2015 },
@@ -265,7 +265,7 @@ const products = [
     { name: "Product 146", feature1: 164.4, feature2: 55.5, year: 2016 },
     { name: "Product 147", feature1: 160.7, feature2: 48.6, year: 2016 },
     { name: "Product 148", feature1: 174, feature2: 66.4, year: 2016 },
-    { name: "Product 149", feature1: 163.8, feature2: 67.3, year: 2016 },
+    { name: "Product 149", feature1: 163.8, feature2: 67.3, year: 2016 },   
 ];
 
 export default products;

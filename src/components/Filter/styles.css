@@ -1,0 +1,21 @@
+@import "../../styles/colors.css";
+
+.dropdown{
+    width:200px;
+    height:40px;
+    position: relative;
+    background: var(--main);
+    color: #000;
+    margin-right: 5px;
+    text-align: center;
+    font-family: "Calibri Light";
+    font-size: 16px;
+
+    text: blue bold center uppercase 1.25em 1.5 .05em;
+}
+
+.dropdown-indicator{
+    position: absolute;
+    right:10px;
+    top:10px;
+}
