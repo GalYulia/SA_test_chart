@@ -35,10 +35,10 @@ function getData(prod) {
 
 const Chart = (props) => {
     let body = null;
-    if (!props || !props.products || !props.products.products)
+    if (!props || !props.products)
         body = <div> Нет данных </div>
     else {
-        const products = props.products.products;
+        const products = props.products;
 
         const options = {
             chart: {

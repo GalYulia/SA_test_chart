@@ -7,7 +7,7 @@ export const getYears = () =>{
 }
 
 
-export const getDataByYears = (year) =>{
+export const getDataByYear = (year) =>{
     return products.filter(obj => {
         return obj.year === +year
     })

@@ -1,32 +1,27 @@
-import { FETCH_PRODUCTS, CHANGE_CATEGORY } from './action-types';
-import { getDataByYears } from '../api/services'
-
+import { CHANGE_YEAR, CHANGE_CATEGORY } from '../constants';
+import { getDataByYear } from '../api/services'
+import { Filters } from '../constants'
 
 //Представим, что мы работаем не с файлом, а с сервером.
-export function setFilter(filter, value) {
+export const setFilter = (filter, value) => {
 
-    if (filter === null || filter === 'YEAR')
+    if (filter === null || filter === Filters.YEAR)
     {
-        let arr = getDataByYears(value);
-        return fetchProducts(arr);
+        let arr = getDataByYear(value);
+        return setYearFilter(arr, value);
     }
     else
-        return changeCategory(filter, value);
+        return setCategoryFilter(value);
 }
 
-export const changeCategory = (filter, value) => ({
+export const setCategoryFilter = (chartCategory) => ({
     type: CHANGE_CATEGORY,
-    value
+    chartCategory
 })
 
-export const fetchProducts = products => ({
-    type: FETCH_PRODUCTS,
-    payload: { products }
+export const setYearFilter = (products, year) => ({
+    type: CHANGE_YEAR,
+    products,
+    year
 })
-
-
-export const Filters = {
-    YEAR: "YEAR",
-    CATEGORY: "CATEGORY"
-}
 

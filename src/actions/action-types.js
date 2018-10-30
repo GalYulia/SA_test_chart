@@ -1,4 +1,0 @@
-export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
-export const CHANGE_CATEGORY = 'CHANGE_CATEGORY';
-
-

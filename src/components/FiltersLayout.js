@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FiltersContainer from "../containers/FiltersContainer";
 import { getYears } from '../api/services';
-import {Filters, setFilter} from "../actions";
+import {CategoryFilter, Filters} from "../constants";
 
 class FiltersLayout extends Component {
     constructor() {
@@ -23,7 +23,6 @@ class FiltersLayout extends Component {
 
     render() {
         return (
-
             <div>
                 <FiltersContainer
                     filter={Filters.YEAR}
@@ -31,7 +30,7 @@ class FiltersLayout extends Component {
                 />
                 <FiltersContainer
                     filter={Filters.CATEGORY}
-                    filterOptions={["Товар", "Категория товара"]}
+                    filterOptions={[CategoryFilter.GOODS, CategoryFilter.CATEGORY_GOODS]}
                 />
             </div>
         );

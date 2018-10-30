@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Chart from "../components/Chart";
 
-const ChartContainer = (products) => {
+const ChartContainer = (props) => {
     // switch (filter) {
     //     case Filters.YEAR:
     //         return ["я год! я год!"];
@@ -11,11 +11,11 @@ const ChartContainer = (products) => {
     //         throw new Error("Unknown filter: " + filter);
     // }
 
-    return products;
+    return props;
 };
 
 const mapStateToProps = state => ({
-    products: ChartContainer(state.products, state.visibilityFilter)
+    products: ChartContainer(state.products, state.chartCategory)
 });
 
 
