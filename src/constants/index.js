@@ -9,6 +9,6 @@ export const Filters = {
 };
 
 export const CategoryFilter = {
-  GOODS: 'Товары',
-  CATEGORY_GOODS: 'Категории товаров',
+  GOODS: 'Goods',
+  CATEGORY_GOODS: 'Product category',
 };

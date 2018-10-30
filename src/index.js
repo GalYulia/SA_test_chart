@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import {
-  BrowserRouter, Route, Switch, browserHistory,
+    HashRouter, Route, Switch
 } from 'react-router-dom';
 import store from './store';
 
@@ -15,13 +15,13 @@ import './styles/index.css';
 
 render((
   <Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/report" component={ChartContainer} />
+          <Route path="/chart" component={ChartContainer} />
         </Switch>
       </Layout>
-    </BrowserRouter>
+    </HashRouter>
   </Provider>
 ), document.getElementById('root'));

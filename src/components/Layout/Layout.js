@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import styles from './styles.css';
 
@@ -7,8 +7,8 @@ const Layout = props => (
   <div>
     <header className={styles.header}>
       <div className={styles.navigation}>
-        <Link to="/">Home</Link>
-        <Link to="/report">Chart</Link>
+        <NavLink exact to="/">Home</NavLink>
+        <NavLink to="/chart">Chart</NavLink>
       </div>
     </header>
     <main className={styles.container}>{props.children}</main>

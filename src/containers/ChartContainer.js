@@ -5,8 +5,7 @@ import { CategoryFilter } from '../constants';
 
 const getProductsData = (prod) => {
   const data = [];
-  let i;
-  for (i = 0; i < prod.length; i++) {
+  for (let i = 0; i < prod.length; i++) {
     const color = randomColor({
       luminosity: 'dark',
       format: 'rgb',

@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: '/src/styles/',
+        exclude: '/src/styles/index.css',
         use: [
           MiniCssExtractPlugin.loader,
           {

@@ -15,7 +15,7 @@ const Chart = (props) => {
         type: 'scatter',
       },
       title: {
-        text: 'Товары',
+        text: 'Goods',
       },
       xAxis: {
         title: {

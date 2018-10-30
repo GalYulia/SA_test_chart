@@ -34,8 +34,8 @@
     margin-right: 10px;
     padding: 10px;
     cursor: default;
+    color: black;
 }
-
 
 .navigation > a:hover {
     background-color: rgba(54, 129, 175, 0.2);
